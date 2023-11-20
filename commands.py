@@ -1,8 +1,5 @@
-from rich.progress import track
 import subprocess
-import os
 import sys
-import time
 from utils import console
 
 def git_clone(url):
@@ -55,3 +52,48 @@ def git_commit(message):
         console.print("Unable to commit files", style="error")
         sys.exit(1)
     
+
+def git_status():
+    response = subprocess.run(["git", "status"], capture_output=True)
+    response_str = response.stdout.decode("utf-8")
+    exit_code = response.returncode
+    console.print(response_str, style="info")
+    if exit_code == 0:
+        console.print("Files committed", style="success")
+    else:
+        console.print("Unable to commit files", style="error")
+        sys.exit(1)
+
+
+def git_push():
+    response = subprocess.run(["git", "push"], capture_output=True)
+    response_str = response.stdout.decode("utf-8")
+    exit_code = response.returncode
+    console.print(response_str, style="info")
+    if exit_code == 0:
+        console.print("Files committed", style="success")
+    else:
+        console.print("Unable to commit files", style="error")
+        sys.exit(1)
+
+def git_pull():
+    response = subprocess.run(["git", "pull"], capture_output=True)
+    response_str = response.stdout.decode("utf-8")
+    exit_code = response.returncode
+    console.print(response_str, style="info")
+    if exit_code == 0:
+        console.print("Files committed", style="success")
+    else:
+        console.print("Unable to commit files", style="error")
+        sys.exit(1)
+
+def git_branch():
+    response = subprocess.run(["git", "branch"], capture_output=True)
+    response_str = response.stdout.decode("utf-8")
+    exit_code = response.returncode
+    console.print(response_str, style="info")
+    if exit_code == 0:
+        console.print("Files committed", style="success")
+    else:
+        console.print("Unable to commit files", style="error")
+        sys.exit(1)

@@ -1,9 +1,6 @@
-# !/usr/bin/env python3
+# !/usr/bin/env python
 
 import click
-import os
-import sys
-import time
 from commands import git_clone, git_init, git_add, git_commit
 from utils import console
 
